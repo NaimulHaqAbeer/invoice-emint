@@ -1,0 +1,178 @@
+body {
+	font-family: 'Roboto Mono', monospace;
+}
+
+.invoice-container {
+	width: 450px;
+	margin: auto;
+	background: white;
+	padding: 20px;
+	border: 1px solid #ddd;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+	display: block;
+	margin: 0 auto 20px;
+}
+
+.header {
+	text-align: center;
+}
+
+.header h2,
+h3,
+h4 {
+	margin: 5px 0;
+}
+
+hr {
+	border: none;
+	border-bottom: 1px dashed #000;
+	margin: 20px 0;
+}
+
+.contact-info,
+.invoice-details,
+.summary {
+	text-align: center;
+	font-size: 14px;
+}
+
+.contact-info p,
+.summary table td {
+	margin: 5px 0;
+}
+
+.invoice-details {
+	display: grid;
+	grid-template-columns: 5fr 1fr;
+}
+
+.items-table table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+.items-table table,
+.items-table th,
+.items-table td {
+	border: 1px solid black;
+	text-align: center;
+	padding: 8px;
+}
+
+.items-table th {
+	background-color: #f0f0f0;
+}
+
+.summary table {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.summary td {
+	padding: 5px 0;
+}
+
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.invoice-details-container {
+	width: 100%;
+	margin: 20px auto;
+	font-family: 'Roboto Mono', monospace;
+}
+
+.item-header,
+.item-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	padding: 8px 0;
+	border-bottom: 1px dashed #000;
+	text-align: center;
+}
+.summary-row {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	padding: 8px 0;
+	margin-right: 8px;
+	border-bottom: 1px dashed #000;
+	text-align: center;
+}
+
+.item-header {
+	font-weight: bold;
+}
+
+.item-row,
+.summary-row .bottom-row {
+	font-size: 14px;
+}
+
+.bottom-row {
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	padding: 8px 0;
+	text-align: center;
+}
+
+hr {
+	border: none;
+	border-bottom: 1px dashed #000;
+	margin: 20px 0;
+}
+
+.summary-row {
+	grid-template-columns: 3fr 1fr;
+	text-align: right;
+	font-size: 14px;
+}
+
+.policy-container {
+	text-align: center;
+	margin: 20px auto;
+	font-family: 'Roboto Mono', monospace;
+}
+
+h3,
+h4 {
+	margin: 5px 0;
+}
+
+ol {
+	text-align: left;
+	margin: 20px auto;
+	padding-left: 20px;
+	max-width: 600px;
+}
+
+ol li {
+	font-size: 14px;
+	margin: 10px 0;
+	line-height: 1.6;
+}
+
+@media (max-width: 576px) {
+	.policy-container {
+		padding: 0 15px;
+	}
+
+	ol {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 576px) {
+	.invoice-container {
+		width: 100%;
+	}
+}
