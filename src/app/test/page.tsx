@@ -1,34 +1,35 @@
 'use client';
 
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import './invoice.css';
 import policyData from '@/data.json';
+import html2pdf from 'html2pdf.js';
 
 type pageProps = {};
 
 const page: FC<pageProps> = ({}) => {
-	const [policy, setPolicy] = useState({});
+	const invoiceRef = useRef<HTMLDivElement>(null);
 
-	// Fetching data from the JSON file on component mount
+	// Function to download the page as PDF
 	useEffect(() => {
-		setPolicy(policyData?.policy);
+		if (invoiceRef.current) {
+			const options = {
+				margin: 1,
+				filename: 'invoice.pdf',
+				image: { type: 'jpeg', quality: 0.98 },
+				html2canvas: { scale: 2 },
+				jsPDF: { unit: 'mm', format: 'A4', orientation: 'portrait' },
+			};
+
+			// Convert HTML to PDF and trigger the download
+			html2pdf().from(invoiceRef.current).set(options).save();
+		}
 	}, []);
+
 	return (
-		<div className='invoice-container'>
+		<div ref={invoiceRef} className='invoice-container'>
 			<div className='header'>
 				<img src='./nexaimage.png' alt='Bata Logo' className='logo' />
-				{/* <h2>Government of the People's Republic of Bangladesh</h2>
-				<h3>National Board of Revenue</h3>
-				<h4>Tax Invoice [[Mushak-6.3]]</h4>
-				<p>[See clause (c) and (f) of Sub-Rule (1) of Rule 40]</p>
-				<h4>Name of the registered person:</h4>
-				<p>
-					Bata Shoe Company (Bangladesh) Limited.
-					<br />
-					000000318-0003
-				</p>
-				<h4>Address of the invoice issuer:</h4>
-				<p>TAJMAHAL ROAD, CITY</p> */}
 			</div>
 
 			<hr />
@@ -136,10 +137,6 @@ const page: FC<pageProps> = ({}) => {
 				</div>
 				<div className='summary-row'>
 					<span>Net Amount:</span>
-					<span>898.00</span>
-				</div>
-				<div className='summary-row'>
-					<span>UCB POS:</span>
 					<span>898.00</span>
 				</div>
 
