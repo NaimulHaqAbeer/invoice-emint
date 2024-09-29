@@ -1,0 +1,16 @@
+{
+	"policy": {
+		"title": "Thank You For Shopping at Bata",
+		"subTitle1": "GOODS SOLD ARE NOT REFUNDABLE",
+		"subTitle2": "PROMO ITEMS ARE NOT EXCHANGE/REFUNDABLE",
+		"policyTitle": "Bata Claims Policy",
+		"items": [
+			"This receipt must be submitted with any claim.",
+			"Goods purchased are not exchangeable for cash.",
+			"Exchange of goods is allowed within 7 days at their original state & packaging.",
+			"No claim will be entertained on factory second & price reduced items.",
+			"100% replacement for major manufacturing defect if the concerned product is brought to the same store with this receipt within 30 days from the date of purchase.",
+			"Bata reserves the right to reject any fraudulent claim."
+		]
+	}
+}

@@ -1,10 +1,18 @@
-import { Button, Flex } from '@chakra-ui/react';
-import React, { FC } from 'react';
+'use client';
+
+import React, { FC, useEffect, useState } from 'react';
 import './invoice.css';
+import policyData from '@/data.json';
 
 type pageProps = {};
 
 const page: FC<pageProps> = ({}) => {
+	const [policy, setPolicy] = useState({});
+
+	// Fetching data from the JSON file on component mount
+	useEffect(() => {
+		setPolicy(policyData?.policy);
+	}, []);
 	return (
 		<div className='invoice-container'>
 			<div className='header'>
@@ -141,28 +149,16 @@ const page: FC<pageProps> = ({}) => {
 				</div>
 				<hr />
 				<div className='policy-container'>
-					<h3>= Thank You For Shopping at NexaStyle =</h3>
-					<h4>GOODS SOLD ARE NOT REFUNDABLE</h4>
-					<h4>PROMO ITEMS ARE NOT EXCHANGE/REFUNDABLE</h4>
+					<h3>= {policyData?.policy?.title} =</h3>
+					<h4>{policyData?.policy?.subTitle1}</h4>
+					<h4>{policyData?.policy?.subTitle2}</h4>
 
-					<h3>= NexaStyle Claims Policy =</h3>
+					<h3>= {policyData?.policy?.policyTitle} =</h3>
 					<ol>
-						<li>This receipt must be submitted with any claim.</li>
-						<li>Goods purchased are not exchangeable for cash.</li>
-						<li>
-							Exchange of goods is allowed within 7 days at their original state
-							& packaging.
-						</li>
-						<li>
-							No claim will be entertained on factory second & price reduced
-							items.
-						</li>
-						<li>
-							100% replacement for major manufacturing defect if the concerned
-							product is brought to the same store with this receipt within 30
-							days from the date of purchase.
-						</li>
-						<li>Bata reserves the right to reject any fraudulent claim.</li>
+						{policyData?.policy?.items &&
+							policyData?.policy?.items?.map((item, index) => (
+								<li key={index}>{item}</li>
+							))}
 					</ol>
 				</div>
 			</div>
